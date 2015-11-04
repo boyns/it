@@ -1,0 +1,19 @@
+^Z	Suspend
+^C	Quit
+^D	Quit
+^R	Redraw
+^U	Line erase
+^W	Work erase
+
+/who
+/nick [newnickname]
+/quit
+/help
+/page [username]
+/rpage [username@hostname]
+/secure
+/unsecure
+/look
+/rlook [hostname]
+![shellcommand]
+<[shellcommand]

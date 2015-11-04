@@ -1,0 +1,22 @@
+#!/bin/sh
+
+list="/home/students/boyns/.alive"
+mypath="/home/students/boyns/bin/alive"
+
+while read search pathname args
+do
+	if [ -z "$search" -o -z "$pathname" ]
+	then
+		continue
+	fi
+	alive=`ps acx | awk '{print $5}' | grep "$search"`
+	if [ -z "$alive" ]
+	then
+		echo restarting $pathname...
+		ps xg
+		uptime
+		$pathname $args &
+	fi
+done < $list
+
+at -s now + 60 minutes $mypath > /dev/null 2>&1 &

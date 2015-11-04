@@ -1,0 +1,78 @@
+.TH INTERNET\ TALK 1
+.SH NAME
+it, it.server, it.remoted \- Internet Talk programs
+.SH SYNOPSIS
+.B it
+[nickname]
+.br
+.B it.server
+.br
+.B it.remoted
+.SH DESCRIPTION
+.I It
+is an multiuser talk program which communicates over the Internet.
+All communication is performed via the central 
+.I it.server.
+.PP
+.I It
+can provide a secure communication channel by encrypting messages with
+the Data Encryption Standard (DES).  This mode of communication still
+allows unsecure users to communicate with secure ones, however the
+inverse is not possible.  Secure users must use the same keys
+because end-to-end encryption is performed.
+.PP
+Another feature that
+.I it
+provides is paging, both local and remote.  
+.I It
+users that wish to be paged must have their own pager.
+The pager must be a setuid program which allows other users 
+the ability to write a simple message to your tty.
+(it was designed to operate without root privileges)
+A standard 
+.I it.pager
+is provided but users can write their own.
+Remote pages are handled by
+.I it.remoted
+so every host that wishes to allow remote paging must be running
+.I it.remoted.
+.SH IT COMMANDS
+/who - display users connected to it.server
+.br
+/nick [newnickname] - change nickname
+.br
+/quit - exit it
+.br
+/help - display list of commands
+.br
+/page [username] - page a user on the local host
+.br
+/rpage [username@hostname] - page a user on a remote host
+.br
+/secure - enter secure mode
+.br
+/unsecure - exit secure mode
+.br
+/look - show users on local host
+.br
+/rlook [hostname] - show users on a remote host
+.br
+![shellcommand] - execute a shell command
+.br
+<[shellcommand] - execute a shell command and send output to it.server
+.br
+^Z - suspend it
+.br
+^C - exit
+.br
+^D - exit
+.br
+^R - redraw line
+.br
+^U - erase line
+.br
+^W - erase word
+.SH NOTES
+.I It
+has gone through two major revisions and some new features will
+be added when time permits.  Send any comments to boyns@sdsu.edu.
